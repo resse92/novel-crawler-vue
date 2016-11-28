@@ -1,28 +1,35 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <hello></hello>
+    <category-book :recommends="recos"></category-book>
   </div>
 </template>
 
 <script>
-import Hello from './components/Hello'
+import CategoryBook from './components/CategoryBook'
 
 export default {
   name: 'app',
   components: {
-    Hello
+    CategoryBook
+  },
+  data () {
+    return {
+      recos: [{
+        'title': '你好',
+        'cover': 'http://h.hiphotos.baidu.com/zhidao/pic/item/0eb30f2442a7d9334f268ca9a84bd11372f00159.jpg',
+        'intro': '不好',
+        'author': '你'
+      }, {
+        'title': '我好',
+        'cover': 'http://h.hiphotos.baidu.com/zhidao/pic/item/0eb30f2442a7d9334f268ca9a84bd11372f00159.jpg',
+        'intro': '很好',
+        'author': '我'
+      }]
+    }
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="sass">
+
 </style>
