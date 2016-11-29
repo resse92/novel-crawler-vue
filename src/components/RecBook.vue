@@ -1,9 +1,11 @@
 <template>
   <div class="hello">
       <img :src=rec.cover alt="" class="cover"></img>
-      <h1 id="title"> {{ rec.title }} </h1>
-      <p id="author">{{ rec.author }}</p>
-      <p id="intro">{{ rec.intro }}</p>
+      <span id="info">
+        <h3 id="title"> {{ rec.title }} </h3></br>
+        <span id="author">{{ rec.author }}</span></br>
+        <span id="intro">{{ rec.intro }}</span>
+      </span>
   </div>
 </template>
 
@@ -30,10 +32,24 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang="sass">
+<style lang="stylus">
+*
+  float: left
+.hello
+  display: inline
+  overflow: hidden
 .cover
   height: 100px
   width: 80px
-  display: inline
+
+#info
+  height: 100px
+  background-color: #129999
+  display: inline-block
+  h3
+    display: inline
+    background-color: #123456
+    padding-top: 0px
+    margin-top: 0px
+
 </style>
