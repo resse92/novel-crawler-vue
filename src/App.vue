@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <category-book :recommends="recos"></category-book>
+    <category-book :books="books"></category-book>
   </div>
 </template>
 
@@ -24,7 +24,8 @@ export default {
         'cover': 'http://h.hiphotos.baidu.com/zhidao/pic/item/0eb30f2442a7d9334f268ca9a84bd11372f00159.jpg',
         'intro': '很好',
         'author': '我'
-      }]
+      }],
+      normals: ['木哈哈', '哈哈哈', '嘿嘿嘿']
     }
   }
 }
