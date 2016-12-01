@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <category-book :books="books"></category-book>
+    <category-book :recommends="recos" :normals="normals"></category-book>
   </div>
 </template>
 

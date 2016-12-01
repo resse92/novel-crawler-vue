@@ -19,7 +19,7 @@ import RecBook from './RecBook'
 export default {
   name: 'CategoryBook',
   // 用来让上层给子组件传递数据,主动修改不会影响上层组件
-  props: ['books'],
+  props: ['recommends', 'normals'],
   // 告诉vue当前页面用到哪些组件
   components: {
     RecBook

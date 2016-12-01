@@ -15,7 +15,13 @@ export default {
   props: {
     rec: {
       type: Object,
-      required: true
+      default () {
+        return {
+          title: '哈哈',
+          cover: 'http://h.hiphotos.baidu.com/zhidao/pic/item/0eb30f2442a7d9334f268ca9a84bd11372f00159.jpg',
+          intro: 'just test'
+        }
+      }
     }
   },
   data () {
