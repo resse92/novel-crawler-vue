@@ -1,6 +1,11 @@
 <template>
   <div id="app">
-  
+    <h3>{{category}}</h3></br>
+    <ul>
+      <li v-for="book in books">
+        <a href="book.src">{{book.name}}</a>/{{book.author}}
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -8,12 +13,37 @@
 export default {
   name: 'CategoryBook',
   // 用来让上层给子组件传递数据,主动修改不会影响上层组件
-  props: ['book'],
-  
+  props: ['category', 'books']
 }
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
 *
+  margin: 0px
   padding: 0
+  float: left
+  overflow: hidden
+  clear: none
+div#app
+  border-style: none
+  width: 100%
+  h3
+    width: 100%
+    border-bottom-color: #93C2C0
+    border-bottom-width: 2px
+    border-bottom-style: solid
+    margin-right: 3px
+  ul
+    list-style: none
+    float: left
+    width: 100%
+    line-height: 26px
+    border-style: none
+    padding: 5px
+    li
+      color: gray
+      width: 50%
+      border-bottom-style: dotted 
+      border-bottom-color: gray 
+      border-bottom-width: 1px
 </style>

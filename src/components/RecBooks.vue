@@ -2,7 +2,9 @@
   <div class="books">
     <ul>
       <li v-for="recbook in recBooks">
-        <rec-book :rec="recbook"></rec-book>
+        <a href="#">
+          <rec-book :rec="recbook"></rec-book>
+        </a>
       </li>
     </ul>
   </div>
@@ -18,14 +20,17 @@ export default {
 }
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
 *
   padding: 0px
   margin: 0px
+  overflow: none
+  float: left
 .books
   border-width: 2px
   border-style: solid
-  boder-color: #B2D3CF
+  border-color: #93C2C0
+
   padding: 10px
   width: 720px
   ul

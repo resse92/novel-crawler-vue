@@ -33,7 +33,7 @@ export default {
 }
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
 totalHeight = 150px
 fontSize14 = 14px
 rightWidth = 190px
@@ -42,8 +42,6 @@ rightWidth = 190px
   margin: 0
   padding: 0
   float: left
-div
-  display: inline
 .hello
   display: inline
   overflow: hidden

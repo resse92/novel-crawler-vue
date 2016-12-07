@@ -1,17 +1,22 @@
 <template>
   <div id="app">
-    <rec-books :recBooks="recos"></rec-books>
+    <rec-books :recBooks="recos"></rec-books></br>
+    <category-books class="category" :categories="categories"></category-books>
   </div>
 </template>
 
 <script>
-import CategoryBook from './components/CategoryBook'
 import RecBooks from './components/RecBooks'
+import CategoryBooks from './components/CategoryBooks'
+
+const VueResource = require('vue-resource')
+const Vue = require('vue')
+Vue.use(VueResource)
 
 export default {
   name: 'app',
   components: {
-    CategoryBook,
+    CategoryBooks,
     RecBooks
   },
   data () {
@@ -37,12 +42,67 @@ export default {
         'intro': '很好',
         'author': '我'
       }],
-      normals: ['木哈哈', '哈哈哈', '嘿嘿嘿']
+      categories: {
+        '玄幻': [{
+          src: '#',
+          name: '哈哈',
+          author: '西红柿'
+        }, {
+          src: '#',
+          name: '哈哈',
+          author: '西红柿'
+        }, {
+          src: '#',
+          name: '哈哈',
+          author: '西红柿'
+        }],
+        '武侠': [{
+          src: '#',
+          name: '嘻嘻',
+          author: '土豆'
+        }, {
+          src: '#',
+          name: '哈哈',
+          author: '西红柿'
+        }, {
+          src: '#',
+          name: '哈哈',
+          author: '西红柿'
+        }],
+        '修真': [{
+          src: '#',
+          name: '嘿嘿',
+          author: '山药'
+        }, {
+          src: '#',
+          name: '哈哈',
+          author: '西红柿'
+        }, {
+          src: '#',
+          name: '哈哈',
+          author: '西红柿'
+        }, {
+          src: '#',
+          name: '哈哈',
+          author: '西红柿'
+        }]
+      }
     }
+  },
+  created () {
+    // GET /someUrl
+    this.$http.get('http://localhost:7000').then((response) => {
+      // success callback
+      this.recos = response.body.hot
+      console.log(response)
+    }, (response) => {
+      // error callback
+    })
   }
 }
 </script>
 
 <style lang="sass">
-
+.category
+  width: 950px
 </style>
