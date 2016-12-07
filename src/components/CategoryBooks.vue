@@ -28,10 +28,11 @@ blueColor = #93C2C0
   overflow: hidden
 div#categories
   padding: 3px
-  width: 950px
+  width: 980px
   border-style: solid
   border-color blueColor
   border-width: 2px
+  margin: 5px 0 5px 0
   ul
     list-style: none outside none
     width: 100%

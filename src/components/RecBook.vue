@@ -42,6 +42,7 @@ rightWidth = 190px
   margin: 0
   padding: 0
   float: left
+  text-align: left
 .hello
   display: inline
   overflow: hidden
@@ -67,11 +68,13 @@ rightWidth = 190px
     display: inline
     padding-top: 0px
     font-size: fontSize14
+    color: #616177
   #author
     float: right
     font-size: fontSize14
     color: gray
   #intro
     font-size: 12px
+    color: #222222
 
 </style>

@@ -2,7 +2,7 @@
   <div class="books">
     <ul>
       <li v-for="recbook in recBooks">
-        <a href="#">
+        <a :href="recbook.book_src">
           <rec-book :rec="recbook"></rec-book>
         </a>
       </li>

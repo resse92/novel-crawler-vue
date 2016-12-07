@@ -3,7 +3,7 @@
     <h3>{{category}}</h3></br>
     <ul>
       <li v-for="book in books">
-        <a href="book.src">{{book.name}}</a>/{{book.author}}
+        <a :href="book.src">{{book.title}}</a>{{book.author}}
       </li>
     </ul>
   </div>
@@ -24,6 +24,8 @@ export default {
   float: left
   overflow: hidden
   clear: none
+  font-size: 12px
+  text-align: left
 div#app
   border-style: none
   width: 100%
@@ -46,4 +48,9 @@ div#app
       border-bottom-style: dotted 
       border-bottom-color: gray 
       border-bottom-width: 1px
+      font-size: 12px
+      height: 20px
+      line-height: 20px
+      a
+        font-size: 13px
 </style>
