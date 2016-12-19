@@ -30,7 +30,7 @@ export default {
   border-width: 2px
   border-style: solid
   border-color: #93C2C0
-
+  background-color: #FEF9EF
   padding: 10px
   width: 720px
   ul

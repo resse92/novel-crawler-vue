@@ -1,14 +1,22 @@
 <template>
   <div id="app">
+    <Navigation id="nav"></navigation>
     <rec-books :recBooks="recos"></rec-books></br>
     <category-books class="category" :categories="categories1"></category-books>
     <category-books class="category" :categories="categories2"></category-books>
+    <div class="newscontent">
+      <latest-update id="latestUpdate" :updates="updateBooks"></latest-update>
+      <latest-book id="latestBook" :books="latestBooks"></latest-book>
+    </div>
   </div>
 </template>
 
 <script>
-import RecBooks from './components/RecBooks'
-import CategoryBooks from './components/CategoryBooks'
+import RecBooks from './components/HomePage/RecBooks'
+import CategoryBooks from './components/HomePage/CategoryBooks'
+import LatestUpdate from './components/HomePage/LatestUpdate'
+import LatestBook from './components/HomePage/LatestBook'
+import Navigation from './components/Navigation'
 
 const VueResource = require('vue-resource')
 const Vue = require('vue')
@@ -18,12 +26,17 @@ export default {
   name: 'app',
   components: {
     CategoryBooks,
-    RecBooks
+    RecBooks,
+    LatestUpdate,
+    LatestBook,
+    Navigation
   },
   data () {
     return {
       recos: [],
-      categories: {}
+      categories: {},
+      updateBooks: [],
+      latestBooks: []
     }
   },
   created () {
@@ -34,9 +47,11 @@ export default {
       this.categories1 = {'玄幻小说': response.body.category[0],
         '修真小说': response.body.category[1],
         '网游小说': response.body.category[2]}
-      this.categories2 = {'玄幻小说': response.body.category[3],
-        '修真小说': response.body.category[4],
-        '网游小说': response.body.category[5]}
+      this.categories2 = {'穿越小说': response.body.category[3],
+        '都市小说': response.body.category[4],
+        '科幻小说': response.body.category[5]}
+      this.updateBooks = response.body.latest_update
+      this.latestBooks = response.body.latest_book
       console.log(response)
     }, (response) => {
       // error callback
@@ -46,10 +61,18 @@ export default {
 </script>
 
 <style lang="sass">
+@import "./css/reset.css"
 #app
-  width: 950px
+  width: 980px
   margin: auto
   text-align: center
   .category
     width: 100%
+  #nav
+    width: 100%
+.newscontent
+  float: left
+  width: 100%
+  display: inline-block
+  text-align: left
 </style>
