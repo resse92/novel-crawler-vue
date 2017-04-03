@@ -30,7 +30,7 @@ a:hover
 div
   border: 3px solid #88C6E5
   display: inline-block
-  width: 28%
+  width: 29.4%
   h3
     padding: 5px 0 0 0
     text-align: left
