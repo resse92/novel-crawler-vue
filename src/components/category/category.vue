@@ -50,7 +50,17 @@ export default {
   },
   created: function () {
     this.$http.get('http://localhost:7000/crawler/' + this.$route.params.category + '/' + this.$route.params.index).then((res) => {
-      this.books = res.body.books
+      let books = res.body.books
+      for (let book in books) {
+        if (books.hasOwnProperty(book)) {
+          let element = books[book]
+          element.link = element.link.replace('http://www.37zw.net', '/book')
+          // console.log(element)
+          books[book] = element
+        }
+      }
+      console.log(books)
+      this.books = books
       this.totalcount = parseInt(res.body.totalcount)
     }).catch((err) => {
       // 错误

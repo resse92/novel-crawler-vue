@@ -24,6 +24,7 @@
   display: flex
   height: 150px
   overflow: hidden
+  justify-content: space-between
   img
     width: 120px
     height: 150px
