@@ -3,7 +3,8 @@
   <p>{{collect.collect}}</p>
 <ul>
   <li v-for="{name, link} in collect.chapters">
-    <a :href="link">{{name}}</a>
+    <!--<a :href="link">{{name}}</a>-->
+    <router-link :to="{name: 'chapter', params: {category: category, index: index, chapter: link, bookname: bookname}}">{{name}}</router-link>
   </li>
 </ul>
 </div>
@@ -12,7 +13,16 @@
 <script>
 export default {
   name: 'BookDetailChapter',
-  props: ['collect']
+  props: ['collect', 'bookname'],
+  data () {
+    return {
+      category: this.$route.params.category,
+      index: this.$route.params.index
+    }
+  },
+  created () {
+    console.log(111)
+  }
 }
 </script>
 

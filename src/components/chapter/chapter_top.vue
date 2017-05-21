@@ -178,9 +178,6 @@
           name: '40%'
         }]
       }
-    },
-    created: () => {
-      console.log(1)
     }
   }
 </script>
@@ -189,7 +186,6 @@
 div
   display: flex
   flex-direction: row
-  margin: 5px 0
   padding: 0 5px
   background-color: #E1ECED
   height: 40px

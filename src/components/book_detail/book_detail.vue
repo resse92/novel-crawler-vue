@@ -2,7 +2,7 @@
   <div id="book-detail">
     <BookDetailTop :bookInfo="bookInfo"></BookDetailTop>
     <div class="chapters">
-      <BookDetailChapter v-for="collect in collects" :collect="collect"></BookDetailChapter>
+      <BookDetailChapter v-for="collect in collects" :collect="collect" :bookname="bookInfo.title"></BookDetailChapter>
     </div>
   </div>
 </template>
