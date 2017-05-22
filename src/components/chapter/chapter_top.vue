@@ -2,19 +2,19 @@
   <div>
     <a>三七中文网</a>><a>{{bookName}}</a>><span>{{chapterTitle}}</span>
     <span class="void"></span>
-      <select>
+      <select @change="valueChanged" data-type="100">
         <option v-for="f in font" :value="f.value">{{f.name}}</option>
       </select>
-      <select>
+      <select @change="valueChanged" data-type="101">
         <option v-for="item in size" :value="item.value">{{item.name}}</option>
       </select>
-      <select>
+      <select @change="valueChanged" data-type="102">
         <option v-for="item in speed" :value="item.value">{{item.name}}</option>
       </select>
-      <select>
+      <select @change="valueChanged" data-type="103">
         <option v-for="item in background" :value="item.value">{{item.name}}</option>
       </select>
-      <select>
+      <select @change="valueChanged" data-type="104">
         <option v-for="item in width" :value="item.value">{{item.name}}</option>
       </select>
       <input type="checkbox">翻页</input>
@@ -177,6 +177,36 @@
           value: '41%',
           name: '40%'
         }]
+      }
+    },
+    methods: {
+      valueChanged: function (e) {
+        console.log(e)
+        switch (parseInt(e.target.dataset.type)) {
+          case 100:
+            this.updateState({fontFamily: e.target.value})
+            break
+          case 101:
+            this.updateState({fontSize: e.target.value})
+            break
+          case 102:
+            console.log(e.target.dataset.type + '122122')
+            break
+          case 103:
+            // 改变背景色
+            console.log('')
+            break
+          case 104:
+            this.updateState({width: e.target.value})
+            break
+          default:
+            console.log(e.target.dataset.type)
+            break
+        }
+      },
+      updateState: function (p) {
+        // 统一通过这个方法进行分发状态
+        this.$emit('updateState', p)
       }
     }
   }

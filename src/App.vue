@@ -7,11 +7,15 @@
 
 <script>
 import Navigation from './components/Navigation'
-
 export default {
   name: 'app',
   components: {
     Navigation
+  },
+  methods: {
+    updateBackgroundColor: function (v) {
+      console.log('background value' + v)
+    }
   }
 }
 </script>

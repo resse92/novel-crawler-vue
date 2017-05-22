@@ -32,6 +32,7 @@ export default {
   computed: {
     categoryname: function () {
       let n = this.$route.params.category
+      this.getPageData()
       if (n === 'xuanhuan') {
         return '玄幻'
       } else if (n === 'xiuzhen') {
@@ -49,27 +50,27 @@ export default {
     }
   },
   created: function () {
-    this.$http.get('http://localhost:7000/crawler/' + this.$route.params.category + '/' + this.$route.params.index).then((res) => {
-      let books = res.body.books
-      for (let book in books) {
-        if (books.hasOwnProperty(book)) {
-          let element = books[book]
-          element.link = element.link.replace('http://www.37zw.net', '/book')
-          // console.log(element)
-          books[book] = element
-        }
-      }
-      console.log(books)
-      this.books = books
-      this.totalcount = parseInt(res.body.totalcount)
-    }).catch((err) => {
-      // 错误
-      console.log(err)
-    })
+    this.getPageData()
   },
   methods: {
-    getPageData: function (pageNum) {
-      console.log(pageNum)
+    getPageData () {
+      this.$http.get('http://localhost:7000/crawler/' + this.$route.params.category + '/' + this.$route.params.index).then((res) => {
+        let books = res.body.books
+        for (let book in books) {
+          if (books.hasOwnProperty(book)) {
+            let element = books[book]
+            element.link = element.link.replace('http://www.37zw.net', '/book')
+            // console.log(element)
+            books[book] = element
+          }
+        }
+        console.log(books)
+        this.books = books
+        this.totalcount = parseInt(res.body.totalcount)
+      }).catch((err) => {
+        // 错误
+        console.log(err)
+      })
     }
   }
 }
