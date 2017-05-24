@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './App'
-
+import store from './store/index'
 const VueResource = require('vue-resource')
 const VueRouter = require('vue-router')
 Vue.use(VueResource)
@@ -45,5 +45,6 @@ const router = new VueRouter({
 
 new Vue({
   router: router,
+  store: store,
   render: h => h(App)
 }).$mount('#app')

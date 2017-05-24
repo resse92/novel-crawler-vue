@@ -181,7 +181,6 @@
     },
     methods: {
       valueChanged: function (e) {
-        console.log(e)
         switch (parseInt(e.target.dataset.type)) {
           case 100:
             this.updateState({fontFamily: e.target.value})
@@ -190,11 +189,12 @@
             this.updateState({fontSize: e.target.value})
             break
           case 102:
+            // 改变速度
             console.log(e.target.dataset.type + '122122')
             break
           case 103:
             // 改变背景色
-            console.log('')
+            this.$store.dispatch('changeBg', e.target.value)
             break
           case 104:
             this.updateState({width: e.target.value})
