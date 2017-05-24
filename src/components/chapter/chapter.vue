@@ -3,9 +3,9 @@
     <chaptertop class="chapter-top" :bookName="bookName" :chapterTitle="chapterTitle" v-on:updateState="updateStyle"></chaptertop>
     <h1>{{chapterTitle}}</h1>
     <div class="buttons">
-      <a href="#">上一章</a>
-      <a href="#">章节列表</a>
-      <a href="#">下一章</a>
+      <a :href="last">上一章</a>
+      <a href="./">章节列表</a>
+      <a :href="next">下一章</a>
     </div>
     <p v-html="chapterContent" v-bind:style="style"></p>
   </div>
@@ -23,6 +23,8 @@ export default {
       bookName: '盘龙',
       chapterTitle: '',
       chapterContent: '',
+      next: '',
+      last: '',
       style: {}
     }
   },
@@ -30,8 +32,12 @@ export default {
     this.bookName = this.$route.params.bookname
     let route = this.$route.params.category + '/' + this.$route.params.index + '/' + this.$route.params.chapter
     this.$http.get('http://localhost:7000/book/' + route).then((res) => {
+      console.log(res)
       this.chapterTitle = res.body.title
       this.chapterContent = res.body.content
+      this.next = './' + res.body.nextChapter
+      // this.next = '/book/' + this.$route.params.category + '/' + this.$route.params.index + '/' + res.body.nextChapter
+      // this.last = '/book/' + this.$route.params.category + '/' + this.$route.params.index + '/' + res.body.lastChapter
     }).catch((err) => {
       console.log(err)
     })
