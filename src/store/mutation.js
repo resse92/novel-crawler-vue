@@ -5,8 +5,5 @@ export default {
     state.backgroundColor = {
       backgroundColor: color
     }
-  },
-  [types.CHANGE_SCROLL_SPEED] (state, speed) {
-    state.speed = speed
   }
 }
