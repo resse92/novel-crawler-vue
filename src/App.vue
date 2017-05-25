@@ -1,5 +1,5 @@
 <template>
-  <div id="app" v-bind:style="background" v-on:ondblclick="doubleclick">
+  <div id="app" v-bind:style="background">
     <Navigation id="nav"></navigation>
     <router-view></router-view>
   </div>
@@ -17,14 +17,7 @@ export default {
     background: state => state.backgroundColor
   }),
   created () {
-    // document.body.offsetTop = 100
     console.log(1)
-  },
-  methods: {
-    doubleclick (e) {
-      console.log(e)
-      document.body.scrollTo(0, 200)
-    }
   }
 }
 </script>

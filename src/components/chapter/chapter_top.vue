@@ -190,7 +190,8 @@
             break
           case 102:
             // 改变速度
-            console.log(e.target.dataset.type + '122122')
+            // console.log(e.target.dataset.type + '122122')
+            this.$emit('updateSpeed', e.target.value)
             break
           case 103:
             // 改变背景色

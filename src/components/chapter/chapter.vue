@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <chaptertop class="chapter-top" :bookName="bookName" :chapterTitle="chapterTitle" v-on:updateState="updateStyle"></chaptertop>
+  <div class="container" @dblclick="doubleclick($event)">
+    <chaptertop class="chapter-top" :bookName="bookName" :chapterTitle="chapterTitle" v-on:updateState="updateStyle" v-on:updateSpeed="updateSpeed"></chaptertop>
     <h1>{{chapterTitle}}</h1>
     <div class="buttons">
       <a :href="last">上一章</a>
@@ -25,7 +25,9 @@ export default {
       chapterContent: '',
       next: '',
       last: '',
-      style: {}
+      style: {},
+      interval: undefined,
+      speed: 5
     }
   },
   created () {
@@ -36,8 +38,6 @@ export default {
       this.chapterTitle = res.body.title
       this.chapterContent = res.body.content
       this.next = './' + res.body.nextChapter
-      // this.next = '/book/' + this.$route.params.category + '/' + this.$route.params.index + '/' + res.body.nextChapter
-      // this.last = '/book/' + this.$route.params.category + '/' + this.$route.params.index + '/' + res.body.lastChapter
     }).catch((err) => {
       console.log(err)
     })
@@ -46,6 +46,21 @@ export default {
     updateStyle: function (p) {
       this.style = p
       window.backgroundColor
+    },
+    updateSpeed: function (speed) {
+      this.speed = speed
+    },
+    doubleclick: function (e) {
+      if (this.interval !== undefined) {
+        clearInterval(this.interval)
+        this.interval = undefined
+        return
+      }
+      this.interval = window.setInterval(function () {
+        let y = window.pageYOffset + 5
+        window.scrollTo(0, y)
+      }, 20 * (10 - this.speed))
+      console.log(this.speed)
     }
   }
 }
