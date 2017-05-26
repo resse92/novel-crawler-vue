@@ -49,6 +49,9 @@
     display: flex
     margin: 10px
     align-items: flex-start
+    img
+        height: 150px
+        width: 120px
     #book-main-info
       margin-left: 30px
       h1
@@ -56,10 +59,6 @@
         font-weight: 700
         font-family: '黑体'
         text-align: left
-      img
-        // flex-basis: 120px
-        height: 150px
-        width: 120px
       #info
         margin-top: 10px
         text-align: left

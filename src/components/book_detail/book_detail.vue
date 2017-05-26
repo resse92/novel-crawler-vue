@@ -25,7 +25,6 @@
     created () {
       this.$http.get('http://localhost:7000/book/' + this.$route.params.category + '/' + this.$route.params.index)
       .then((res) => {
-        // console.log(res)
         this.bookInfo = {
           cover: res.body.cover,
           title: res.body.title,
@@ -36,7 +35,6 @@
           recommends: res.body.recommends
         }
         this.collects = res.body.chapters
-        console.log(this.bookInfo)
       }).catch((error) => {
         console.log(error)
       })

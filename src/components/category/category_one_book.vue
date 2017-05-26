@@ -40,17 +40,20 @@
       justify-content: space-between
       font-size: 14px
       width: 100%
+      white-space: nowrap
     .category-one-book-title
       text-align: left
       color: #6F78A7
+      overflow: hidden
     .category-one-book-author
       text-align: right
+      overflow: hidden
     .category-one-book-desc
+      overflow: hidden
       color: gray
       font-size: 12px
       line-height: 20px
     .splash
       border: 1px dashed gray
       margin: 5px 0px 5px 0px
-    
 </style>
