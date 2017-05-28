@@ -15,10 +15,7 @@ export default {
   },
   computed: mapState({
     background: state => state.backgroundColor
-  }),
-  created () {
-    console.log(1)
-  }
+  })
 }
 </script>
 
