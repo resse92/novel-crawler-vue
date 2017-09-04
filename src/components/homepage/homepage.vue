@@ -34,7 +34,7 @@ export default {
   },
   created () {
     // GET /someUrl
-    this.$http.get('http://localhost:7000').then((response) => {
+    this.$http.get(process.env.API).then((response) => {
       // success callback
       this.recos = response.body.hot
       this.categories1 = {'玄幻小说': response.body.category[0],

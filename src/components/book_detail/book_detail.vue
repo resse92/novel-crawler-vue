@@ -23,7 +23,7 @@
       }
     },
     created () {
-      this.$http.get('http://localhost:7000/book/' + this.$route.params.category + '/' + this.$route.params.index)
+      this.$http.get(process.env.API + 'book/' + this.$route.params.category + '/' + this.$route.params.index)
       .then((res) => {
         this.bookInfo = {
           cover: res.body.cover,

@@ -33,7 +33,7 @@ export default {
   created () {
     this.bookName = this.$route.params.bookname
     let route = this.$route.params.category + '/' + this.$route.params.index + '/' + this.$route.params.chapter
-    this.$http.get('http://localhost:7000/book/' + route).then((res) => {
+    this.$http.get(process.env.API + 'book/' + route).then((res) => {
       console.log(res)
       this.chapterTitle = res.body.title
       this.chapterContent = res.body.content
