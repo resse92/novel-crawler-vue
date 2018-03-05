@@ -54,7 +54,7 @@ export default {
   },
   methods: {
     getPageData () {
-      this.$http.get(process.env.API + 'crawler/' + this.$route.params.category + '/' + this.$route.params.index).then((res) => {
+      this.$http.get(process.env.API + this.$route.params.category + '/' + this.$route.params.index).then((res) => {
         let books = res.body.books
         for (let book in books) {
           if (books.hasOwnProperty(book)) {
